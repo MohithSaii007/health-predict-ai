@@ -1,0 +1,352 @@
+{
+  "totalRecords": 2493,
+  "diabetic": 302,
+  "nonDiabetic": 2191,
+  "distributions": {
+    "age": [
+      {
+        "bin": "20-30",
+        "count": 393
+      },
+      {
+        "bin": "30-40",
+        "count": 414
+      },
+      {
+        "bin": "40-50",
+        "count": 465
+      },
+      {
+        "bin": "50-60",
+        "count": 422
+      },
+      {
+        "bin": "60-70",
+        "count": 400
+      },
+      {
+        "bin": "70-81",
+        "count": 399
+      }
+    ],
+    "bmi": [
+      {
+        "bin": "10-20",
+        "count": 122
+      },
+      {
+        "bin": "20-25",
+        "count": 650
+      },
+      {
+        "bin": "25-30",
+        "count": 801
+      },
+      {
+        "bin": "30-35",
+        "count": 495
+      },
+      {
+        "bin": "35-40",
+        "count": 205
+      },
+      {
+        "bin": "40-70",
+        "count": 194
+      }
+    ],
+    "glucose": [
+      {
+        "bin": "40-80",
+        "count": 67
+      },
+      {
+        "bin": "80-100",
+        "count": 1240
+      },
+      {
+        "bin": "100-126",
+        "count": 892
+      },
+      {
+        "bin": "126-160",
+        "count": 166
+      },
+      {
+        "bin": "160-200",
+        "count": 62
+      },
+      {
+        "bin": "200-500",
+        "count": 66
+      }
+    ],
+    "blood_pressure": [
+      {
+        "bin": "70-100",
+        "count": 136
+      },
+      {
+        "bin": "100-120",
+        "count": 1103
+      },
+      {
+        "bin": "120-130",
+        "count": 466
+      },
+      {
+        "bin": "130-140",
+        "count": 334
+      },
+      {
+        "bin": "140-160",
+        "count": 278
+      },
+      {
+        "bin": "160-250",
+        "count": 93
+      }
+    ],
+    "cholesterol": [
+      {
+        "bin": "80-150",
+        "count": 396
+      },
+      {
+        "bin": "150-180",
+        "count": 698
+      },
+      {
+        "bin": "180-200",
+        "count": 471
+      },
+      {
+        "bin": "200-240",
+        "count": 638
+      },
+      {
+        "bin": "240-280",
+        "count": 217
+      },
+      {
+        "bin": "280-500",
+        "count": 47
+      }
+    ]
+  },
+  "physicalActivity": [
+    {
+      "level": "Low",
+      "count": 1275,
+      "diabetic": 197
+    },
+    {
+      "level": "Moderate",
+      "count": 670,
+      "diabetic": 81
+    },
+    {
+      "level": "High",
+      "count": 548,
+      "diabetic": 24
+    }
+  ],
+  "meansByClass": {
+    "age": {
+      "diabetic": 61.48,
+      "nonDiabetic": 47.83
+    },
+    "bmi": {
+      "diabetic": 31.94,
+      "nonDiabetic": 28.51
+    },
+    "blood_pressure": {
+      "diabetic": 130.57,
+      "nonDiabetic": 121.38
+    },
+    "cholesterol": {
+      "diabetic": 175.74,
+      "nonDiabetic": 189.88
+    },
+    "glucose": {
+      "diabetic": 159.91,
+      "nonDiabetic": 99.79
+    }
+  },
+  "correlation": [
+    {
+      "feature": "age",
+      "values": [
+        {
+          "feature": "age",
+          "value": 1.0
+        },
+        {
+          "feature": "bmi",
+          "value": 0.025
+        },
+        {
+          "feature": "blood_pressure",
+          "value": 0.413
+        },
+        {
+          "feature": "cholesterol",
+          "value": 0.1
+        },
+        {
+          "feature": "glucose",
+          "value": 0.21
+        },
+        {
+          "feature": "diabetes",
+          "value": 0.256
+        }
+      ]
+    },
+    {
+      "feature": "bmi",
+      "values": [
+        {
+          "feature": "age",
+          "value": 0.025
+        },
+        {
+          "feature": "bmi",
+          "value": 1.0
+        },
+        {
+          "feature": "blood_pressure",
+          "value": 0.158
+        },
+        {
+          "feature": "cholesterol",
+          "value": 0.017
+        },
+        {
+          "feature": "glucose",
+          "value": 0.195
+        },
+        {
+          "feature": "diabetes",
+          "value": 0.158
+        }
+      ]
+    },
+    {
+      "feature": "blood_pressure",
+      "values": [
+        {
+          "feature": "age",
+          "value": 0.413
+        },
+        {
+          "feature": "bmi",
+          "value": 0.158
+        },
+        {
+          "feature": "blood_pressure",
+          "value": 1.0
+        },
+        {
+          "feature": "cholesterol",
+          "value": 0.112
+        },
+        {
+          "feature": "glucose",
+          "value": 0.185
+        },
+        {
+          "feature": "diabetes",
+          "value": 0.167
+        }
+      ]
+    },
+    {
+      "feature": "cholesterol",
+      "values": [
+        {
+          "feature": "age",
+          "value": 0.1
+        },
+        {
+          "feature": "bmi",
+          "value": 0.017
+        },
+        {
+          "feature": "blood_pressure",
+          "value": 0.112
+        },
+        {
+          "feature": "cholesterol",
+          "value": 1.0
+        },
+        {
+          "feature": "glucose",
+          "value": 0.015
+        },
+        {
+          "feature": "diabetes",
+          "value": -0.114
+        }
+      ]
+    },
+    {
+      "feature": "glucose",
+      "values": [
+        {
+          "feature": "age",
+          "value": 0.21
+        },
+        {
+          "feature": "bmi",
+          "value": 0.195
+        },
+        {
+          "feature": "blood_pressure",
+          "value": 0.185
+        },
+        {
+          "feature": "cholesterol",
+          "value": 0.015
+        },
+        {
+          "feature": "glucose",
+          "value": 1.0
+        },
+        {
+          "feature": "diabetes",
+          "value": 0.58
+        }
+      ]
+    },
+    {
+      "feature": "diabetes",
+      "values": [
+        {
+          "feature": "age",
+          "value": 0.256
+        },
+        {
+          "feature": "bmi",
+          "value": 0.158
+        },
+        {
+          "feature": "blood_pressure",
+          "value": 0.167
+        },
+        {
+          "feature": "cholesterol",
+          "value": -0.114
+        },
+        {
+          "feature": "glucose",
+          "value": 0.58
+        },
+        {
+          "feature": "diabetes",
+          "value": 1.0
+        }
+      ]
+    }
+  ]
+}

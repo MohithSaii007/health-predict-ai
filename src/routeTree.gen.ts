@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DocumentationRouteImport } from './routes/documentation'
+import { Route as ModelPerformanceRouteImport } from './routes/model-performance'
+import { Route as PredictionRouteImport } from './routes/prediction'
+import { Route as ResultsRouteImport } from './routes/results'
+import { Route as ApiPublicHealthRouteImport } from './routes/api/public/health'
+import { Route as ApiPublicMetricsRouteImport } from './routes/api/public/metrics'
+import { Route as ApiPublicModelInfoRouteImport } from './routes/api/public/model-info'
+import { Route as ApiPublicPredictRouteImport } from './routes/api/public/predict'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentationRoute = DocumentationRouteImport.update({
+  id: '/documentation',
+  path: '/documentation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModelPerformanceRoute = ModelPerformanceRouteImport.update({
+  id: '/model-performance',
+  path: '/model-performance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PredictionRoute = PredictionRouteImport.update({
+  id: '/prediction',
+  path: '/prediction',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicHealthRoute = ApiPublicHealthRouteImport.update({
+  id: '/api/public/health',
+  path: '/api/public/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicMetricsRoute = ApiPublicMetricsRouteImport.update({
+  id: '/api/public/metrics',
+  path: '/api/public/metrics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicModelInfoRoute = ApiPublicModelInfoRouteImport.update({
+  id: '/api/public/model-info',
+  path: '/api/public/model-info',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicPredictRoute = ApiPublicPredictRouteImport.update({
+  id: '/api/public/predict',
+  path: '/api/public/predict',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/dashboard': typeof DashboardRoute
+  '/documentation': typeof DocumentationRoute
+  '/model-performance': typeof ModelPerformanceRoute
+  '/prediction': typeof PredictionRoute
+  '/results': typeof ResultsRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
+  '/api/public/metrics': typeof ApiPublicMetricsRoute
+  '/api/public/model-info': typeof ApiPublicModelInfoRoute
+  '/api/public/predict': typeof ApiPublicPredictRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/dashboard': typeof DashboardRoute
+  '/documentation': typeof DocumentationRoute
+  '/model-performance': typeof ModelPerformanceRoute
+  '/prediction': typeof PredictionRoute
+  '/results': typeof ResultsRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
+  '/api/public/metrics': typeof ApiPublicMetricsRoute
+  '/api/public/model-info': typeof ApiPublicModelInfoRoute
+  '/api/public/predict': typeof ApiPublicPredictRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/dashboard': typeof DashboardRoute
+  '/documentation': typeof DocumentationRoute
+  '/model-performance': typeof ModelPerformanceRoute
+  '/prediction': typeof PredictionRoute
+  '/results': typeof ResultsRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
+  '/api/public/metrics': typeof ApiPublicMetricsRoute
+  '/api/public/model-info': typeof ApiPublicModelInfoRoute
+  '/api/public/predict': typeof ApiPublicPredictRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/dashboard'
+    | '/documentation'
+    | '/model-performance'
+    | '/prediction'
+    | '/results'
+    | '/api/public/health'
+    | '/api/public/metrics'
+    | '/api/public/model-info'
+    | '/api/public/predict'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/dashboard'
+    | '/documentation'
+    | '/model-performance'
+    | '/prediction'
+    | '/results'
+    | '/api/public/health'
+    | '/api/public/metrics'
+    | '/api/public/model-info'
+    | '/api/public/predict'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/dashboard'
+    | '/documentation'
+    | '/model-performance'
+    | '/prediction'
+    | '/results'
+    | '/api/public/health'
+    | '/api/public/metrics'
+    | '/api/public/model-info'
+    | '/api/public/predict'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  DashboardRoute: typeof DashboardRoute
+  DocumentationRoute: typeof DocumentationRoute
+  ModelPerformanceRoute: typeof ModelPerformanceRoute
+  PredictionRoute: typeof PredictionRoute
+  ResultsRoute: typeof ResultsRoute
+  ApiPublicHealthRoute: typeof ApiPublicHealthRoute
+  ApiPublicMetricsRoute: typeof ApiPublicMetricsRoute
+  ApiPublicModelInfoRoute: typeof ApiPublicModelInfoRoute
+  ApiPublicPredictRoute: typeof ApiPublicPredictRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documentation': {
+      id: '/documentation'
+      path: '/documentation'
+      fullPath: '/documentation'
+      preLoaderRoute: typeof DocumentationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/model-performance': {
+      id: '/model-performance'
+      path: '/model-performance'
+      fullPath: '/model-performance'
+      preLoaderRoute: typeof ModelPerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prediction': {
+      id: '/prediction'
+      path: '/prediction'
+      fullPath: '/prediction'
+      preLoaderRoute: typeof PredictionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/health': {
+      id: '/api/public/health'
+      path: '/api/public/health'
+      fullPath: '/api/public/health'
+      preLoaderRoute: typeof ApiPublicHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/metrics': {
+      id: '/api/public/metrics'
+      path: '/api/public/metrics'
+      fullPath: '/api/public/metrics'
+      preLoaderRoute: typeof ApiPublicMetricsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/model-info': {
+      id: '/api/public/model-info'
+      path: '/api/public/model-info'
+      fullPath: '/api/public/model-info'
+      preLoaderRoute: typeof ApiPublicModelInfoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/predict': {
+      id: '/api/public/predict'
+      path: '/api/public/predict'
+      fullPath: '/api/public/predict'
+      preLoaderRoute: typeof ApiPublicPredictRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  DashboardRoute: DashboardRoute,
+  DocumentationRoute: DocumentationRoute,
+  ModelPerformanceRoute: ModelPerformanceRoute,
+  PredictionRoute: PredictionRoute,
+  ResultsRoute: ResultsRoute,
+  ApiPublicHealthRoute: ApiPublicHealthRoute,
+  ApiPublicMetricsRoute: ApiPublicMetricsRoute,
+  ApiPublicModelInfoRoute: ApiPublicModelInfoRoute,
+  ApiPublicPredictRoute: ApiPublicPredictRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
