@@ -10,11 +10,29 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicHealthRouteImport } from './routes/api/public/health'
+import { Route as ApiPublicMetricsRouteImport } from './routes/api/public/metrics'
+import { Route as ApiPublicModelInfoRouteImport } from './routes/api/public/model-info'
 import { Route as ApiPublicPredictRouteImport } from './routes/api/public/predict'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicHealthRoute = ApiPublicHealthRouteImport.update({
+  id: '/api/public/health',
+  path: '/api/public/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicMetricsRoute = ApiPublicMetricsRouteImport.update({
+  id: '/api/public/metrics',
+  path: '/api/public/metrics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicModelInfoRoute = ApiPublicModelInfoRouteImport.update({
+  id: '/api/public/model-info',
+  path: '/api/public/model-info',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicPredictRoute = ApiPublicPredictRouteImport.update({
@@ -25,27 +43,55 @@ const ApiPublicPredictRoute = ApiPublicPredictRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
+  '/api/public/metrics': typeof ApiPublicMetricsRoute
+  '/api/public/model-info': typeof ApiPublicModelInfoRoute
   '/api/public/predict': typeof ApiPublicPredictRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
+  '/api/public/metrics': typeof ApiPublicMetricsRoute
+  '/api/public/model-info': typeof ApiPublicModelInfoRoute
   '/api/public/predict': typeof ApiPublicPredictRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
+  '/api/public/metrics': typeof ApiPublicMetricsRoute
+  '/api/public/model-info': typeof ApiPublicModelInfoRoute
   '/api/public/predict': typeof ApiPublicPredictRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/public/predict'
+  fullPaths:
+    | '/'
+    | '/api/public/health'
+    | '/api/public/metrics'
+    | '/api/public/model-info'
+    | '/api/public/predict'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/public/predict'
-  id: '__root__' | '/' | '/api/public/predict'
+  to:
+    | '/'
+    | '/api/public/health'
+    | '/api/public/metrics'
+    | '/api/public/model-info'
+    | '/api/public/predict'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/public/health'
+    | '/api/public/metrics'
+    | '/api/public/model-info'
+    | '/api/public/predict'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiPublicHealthRoute: typeof ApiPublicHealthRoute
+  ApiPublicMetricsRoute: typeof ApiPublicMetricsRoute
+  ApiPublicModelInfoRoute: typeof ApiPublicModelInfoRoute
   ApiPublicPredictRoute: typeof ApiPublicPredictRoute
 }
 
@@ -56,6 +102,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/health': {
+      id: '/api/public/health'
+      path: '/api/public/health'
+      fullPath: '/api/public/health'
+      preLoaderRoute: typeof ApiPublicHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/metrics': {
+      id: '/api/public/metrics'
+      path: '/api/public/metrics'
+      fullPath: '/api/public/metrics'
+      preLoaderRoute: typeof ApiPublicMetricsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/model-info': {
+      id: '/api/public/model-info'
+      path: '/api/public/model-info'
+      fullPath: '/api/public/model-info'
+      preLoaderRoute: typeof ApiPublicModelInfoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/predict': {
@@ -70,6 +137,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiPublicHealthRoute: ApiPublicHealthRoute,
+  ApiPublicMetricsRoute: ApiPublicMetricsRoute,
+  ApiPublicModelInfoRoute: ApiPublicModelInfoRoute,
   ApiPublicPredictRoute: ApiPublicPredictRoute,
 }
 export const routeTree = rootRouteImport
