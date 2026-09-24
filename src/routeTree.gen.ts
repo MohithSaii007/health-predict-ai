@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PredictionRouteImport } from './routes/prediction'
+import { Route as ResultsRouteImport } from './routes/results'
 import { Route as ApiPublicHealthRouteImport } from './routes/api/public/health'
 import { Route as ApiPublicMetricsRouteImport } from './routes/api/public/metrics'
 import { Route as ApiPublicModelInfoRouteImport } from './routes/api/public/model-info'
@@ -18,6 +20,16 @@ import { Route as ApiPublicPredictRouteImport } from './routes/api/public/predic
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PredictionRoute = PredictionRouteImport.update({
+  id: '/prediction',
+  path: '/prediction',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicHealthRoute = ApiPublicHealthRouteImport.update({
@@ -43,6 +55,8 @@ const ApiPublicPredictRoute = ApiPublicPredictRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/prediction': typeof PredictionRoute
+  '/results': typeof ResultsRoute
   '/api/public/health': typeof ApiPublicHealthRoute
   '/api/public/metrics': typeof ApiPublicMetricsRoute
   '/api/public/model-info': typeof ApiPublicModelInfoRoute
@@ -50,6 +64,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/prediction': typeof PredictionRoute
+  '/results': typeof ResultsRoute
   '/api/public/health': typeof ApiPublicHealthRoute
   '/api/public/metrics': typeof ApiPublicMetricsRoute
   '/api/public/model-info': typeof ApiPublicModelInfoRoute
@@ -58,6 +74,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/prediction': typeof PredictionRoute
+  '/results': typeof ResultsRoute
   '/api/public/health': typeof ApiPublicHealthRoute
   '/api/public/metrics': typeof ApiPublicMetricsRoute
   '/api/public/model-info': typeof ApiPublicModelInfoRoute
@@ -67,6 +85,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/prediction'
+    | '/results'
     | '/api/public/health'
     | '/api/public/metrics'
     | '/api/public/model-info'
@@ -74,6 +94,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/prediction'
+    | '/results'
     | '/api/public/health'
     | '/api/public/metrics'
     | '/api/public/model-info'
@@ -81,6 +103,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/prediction'
+    | '/results'
     | '/api/public/health'
     | '/api/public/metrics'
     | '/api/public/model-info'
@@ -89,6 +113,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PredictionRoute: typeof PredictionRoute
+  ResultsRoute: typeof ResultsRoute
   ApiPublicHealthRoute: typeof ApiPublicHealthRoute
   ApiPublicMetricsRoute: typeof ApiPublicMetricsRoute
   ApiPublicModelInfoRoute: typeof ApiPublicModelInfoRoute
@@ -102,6 +128,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prediction': {
+      id: '/prediction'
+      path: '/prediction'
+      fullPath: '/prediction'
+      preLoaderRoute: typeof PredictionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/health': {
@@ -137,6 +177,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PredictionRoute: PredictionRoute,
+  ResultsRoute: ResultsRoute,
   ApiPublicHealthRoute: ApiPublicHealthRoute,
   ApiPublicMetricsRoute: ApiPublicMetricsRoute,
   ApiPublicModelInfoRoute: ApiPublicModelInfoRoute,
