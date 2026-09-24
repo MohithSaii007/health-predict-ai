@@ -153,7 +153,7 @@ function ModelPerformance() {
                 <YAxis
                   type="category"
                   dataKey="feature"
-                  tick={{ fontSize: 12, textTransform: "capitalize" }}
+                  tick={{ fontSize: 12 }}
                   stroke="var(--color-muted-foreground)"
                   width={110}
                 />

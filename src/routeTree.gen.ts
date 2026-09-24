@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ModelPerformanceRouteImport } from './routes/model-performance'
 import { Route as PredictionRouteImport } from './routes/prediction'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as ApiPublicHealthRouteImport } from './routes/api/public/health'
@@ -20,6 +22,16 @@ import { Route as ApiPublicPredictRouteImport } from './routes/api/public/predic
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModelPerformanceRoute = ModelPerformanceRouteImport.update({
+  id: '/model-performance',
+  path: '/model-performance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PredictionRoute = PredictionRouteImport.update({
@@ -55,6 +67,8 @@ const ApiPublicPredictRoute = ApiPublicPredictRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/model-performance': typeof ModelPerformanceRoute
   '/prediction': typeof PredictionRoute
   '/results': typeof ResultsRoute
   '/api/public/health': typeof ApiPublicHealthRoute
@@ -64,6 +78,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/model-performance': typeof ModelPerformanceRoute
   '/prediction': typeof PredictionRoute
   '/results': typeof ResultsRoute
   '/api/public/health': typeof ApiPublicHealthRoute
@@ -74,6 +90,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/model-performance': typeof ModelPerformanceRoute
   '/prediction': typeof PredictionRoute
   '/results': typeof ResultsRoute
   '/api/public/health': typeof ApiPublicHealthRoute
@@ -85,6 +103,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/dashboard'
+    | '/model-performance'
     | '/prediction'
     | '/results'
     | '/api/public/health'
@@ -94,6 +114,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/dashboard'
+    | '/model-performance'
     | '/prediction'
     | '/results'
     | '/api/public/health'
@@ -103,6 +125,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/dashboard'
+    | '/model-performance'
     | '/prediction'
     | '/results'
     | '/api/public/health'
@@ -113,6 +137,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
+  ModelPerformanceRoute: typeof ModelPerformanceRoute
   PredictionRoute: typeof PredictionRoute
   ResultsRoute: typeof ResultsRoute
   ApiPublicHealthRoute: typeof ApiPublicHealthRoute
@@ -128,6 +154,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/model-performance': {
+      id: '/model-performance'
+      path: '/model-performance'
+      fullPath: '/model-performance'
+      preLoaderRoute: typeof ModelPerformanceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/prediction': {
@@ -177,6 +217,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
+  ModelPerformanceRoute: ModelPerformanceRoute,
   PredictionRoute: PredictionRoute,
   ResultsRoute: ResultsRoute,
   ApiPublicHealthRoute: ApiPublicHealthRoute,
