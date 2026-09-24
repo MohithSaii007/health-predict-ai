@@ -1,0 +1,319 @@
+{
+  "trained": true,
+  "trainedAt": "2026-09-24 10:09 UTC",
+  "algorithm": "Random Forest Classifier",
+  "problemType": "Binary Classification",
+  "dataset": "CDC NHANES 2013-2014 adult health examination data",
+  "samples": {
+    "total": 2493,
+    "train": 1994,
+    "test": 499
+  },
+  "hyperparameters": {
+    "n_estimators": 150,
+    "max_depth": 8,
+    "min_samples_leaf": 4,
+    "class_weight": "balanced",
+    "random_state": 42
+  },
+  "accuracy": 0.8858,
+  "precision": 0.5185,
+  "recall": 0.7,
+  "f1": 0.5957,
+  "rocAuc": 0.9074,
+  "crossValRocAuc": {
+    "mean": 0.9286,
+    "std": 0.015,
+    "folds": [
+      0.9266,
+      0.9117,
+      0.9134,
+      0.9418,
+      0.9494
+    ]
+  },
+  "confusionMatrix": {
+    "trueNegative": 400,
+    "falsePositive": 39,
+    "falseNegative": 18,
+    "truePositive": 42
+  },
+  "rocCurve": [
+    {
+      "fpr": 0.0,
+      "tpr": 0.0
+    },
+    {
+      "fpr": 0.0,
+      "tpr": 0.0167
+    },
+    {
+      "fpr": 0.0,
+      "tpr": 0.2
+    },
+    {
+      "fpr": 0.0023,
+      "tpr": 0.2
+    },
+    {
+      "fpr": 0.0023,
+      "tpr": 0.2333
+    },
+    {
+      "fpr": 0.0046,
+      "tpr": 0.2333
+    },
+    {
+      "fpr": 0.0046,
+      "tpr": 0.45
+    },
+    {
+      "fpr": 0.0114,
+      "tpr": 0.45
+    },
+    {
+      "fpr": 0.0114,
+      "tpr": 0.4667
+    },
+    {
+      "fpr": 0.0159,
+      "tpr": 0.4667
+    },
+    {
+      "fpr": 0.0159,
+      "tpr": 0.5167
+    },
+    {
+      "fpr": 0.0205,
+      "tpr": 0.5167
+    },
+    {
+      "fpr": 0.0205,
+      "tpr": 0.55
+    },
+    {
+      "fpr": 0.0273,
+      "tpr": 0.55
+    },
+    {
+      "fpr": 0.0273,
+      "tpr": 0.5833
+    },
+    {
+      "fpr": 0.0387,
+      "tpr": 0.5833
+    },
+    {
+      "fpr": 0.0387,
+      "tpr": 0.6
+    },
+    {
+      "fpr": 0.0501,
+      "tpr": 0.6
+    },
+    {
+      "fpr": 0.0501,
+      "tpr": 0.6167
+    },
+    {
+      "fpr": 0.0774,
+      "tpr": 0.6167
+    },
+    {
+      "fpr": 0.0774,
+      "tpr": 0.6667
+    },
+    {
+      "fpr": 0.082,
+      "tpr": 0.6667
+    },
+    {
+      "fpr": 0.082,
+      "tpr": 0.6833
+    },
+    {
+      "fpr": 0.0866,
+      "tpr": 0.6833
+    },
+    {
+      "fpr": 0.0866,
+      "tpr": 0.7
+    },
+    {
+      "fpr": 0.0888,
+      "tpr": 0.7
+    },
+    {
+      "fpr": 0.0888,
+      "tpr": 0.7167
+    },
+    {
+      "fpr": 0.0911,
+      "tpr": 0.7167
+    },
+    {
+      "fpr": 0.0911,
+      "tpr": 0.7333
+    },
+    {
+      "fpr": 0.1207,
+      "tpr": 0.7333
+    },
+    {
+      "fpr": 0.1207,
+      "tpr": 0.7667
+    },
+    {
+      "fpr": 0.1367,
+      "tpr": 0.7667
+    },
+    {
+      "fpr": 0.1367,
+      "tpr": 0.8
+    },
+    {
+      "fpr": 0.2164,
+      "tpr": 0.8
+    },
+    {
+      "fpr": 0.2164,
+      "tpr": 0.8167
+    },
+    {
+      "fpr": 0.2346,
+      "tpr": 0.8167
+    },
+    {
+      "fpr": 0.2346,
+      "tpr": 0.85
+    },
+    {
+      "fpr": 0.2369,
+      "tpr": 0.85
+    },
+    {
+      "fpr": 0.2369,
+      "tpr": 0.8667
+    },
+    {
+      "fpr": 0.2415,
+      "tpr": 0.8667
+    },
+    {
+      "fpr": 0.2415,
+      "tpr": 0.8833
+    },
+    {
+      "fpr": 0.2847,
+      "tpr": 0.8833
+    },
+    {
+      "fpr": 0.2847,
+      "tpr": 0.9
+    },
+    {
+      "fpr": 0.3212,
+      "tpr": 0.9
+    },
+    {
+      "fpr": 0.3212,
+      "tpr": 0.9167
+    },
+    {
+      "fpr": 0.3485,
+      "tpr": 0.9167
+    },
+    {
+      "fpr": 0.3485,
+      "tpr": 0.9333
+    },
+    {
+      "fpr": 0.4009,
+      "tpr": 0.9333
+    },
+    {
+      "fpr": 0.4009,
+      "tpr": 0.95
+    },
+    {
+      "fpr": 0.4624,
+      "tpr": 0.95
+    },
+    {
+      "fpr": 0.4624,
+      "tpr": 0.9667
+    },
+    {
+      "fpr": 0.5786,
+      "tpr": 0.9667
+    },
+    {
+      "fpr": 0.5786,
+      "tpr": 0.9833
+    },
+    {
+      "fpr": 0.5945,
+      "tpr": 0.9833
+    },
+    {
+      "fpr": 0.5945,
+      "tpr": 1.0
+    },
+    {
+      "fpr": 0.9248,
+      "tpr": 1.0
+    },
+    {
+      "fpr": 0.9294,
+      "tpr": 1.0
+    },
+    {
+      "fpr": 0.9863,
+      "tpr": 1.0
+    },
+    {
+      "fpr": 0.9909,
+      "tpr": 1.0
+    },
+    {
+      "fpr": 1.0,
+      "tpr": 1.0
+    }
+  ],
+  "featureImportance": [
+    {
+      "feature": "glucose",
+      "importance": 0.5663
+    },
+    {
+      "feature": "age",
+      "importance": 0.1831
+    },
+    {
+      "feature": "bmi",
+      "importance": 0.0966
+    },
+    {
+      "feature": "cholesterol",
+      "importance": 0.0738
+    },
+    {
+      "feature": "blood_pressure",
+      "importance": 0.0529
+    },
+    {
+      "feature": "physical_activity",
+      "importance": 0.0273
+    }
+  ],
+  "rawFeatureNames": [
+    "age",
+    "bmi",
+    "blood_pressure",
+    "cholesterol",
+    "glucose",
+    "activity_Low",
+    "activity_Moderate",
+    "activity_High"
+  ]
+}
