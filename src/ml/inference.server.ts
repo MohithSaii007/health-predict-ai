@@ -51,8 +51,8 @@ export type PredictionResult = {
 export function preprocess(input: PatientInput): number[] {
   const { medians, means, scales } = model.preprocessing;
   const numeric = model.numericFeatures.map((name) => {
-    const raw = (input as unknown as Record<string, number>)[name];
-    const value = Number.isFinite(raw) ? raw : (medians[name] as number);
+    const raw = (input as unknown as Record<string, number | undefined>)[name];
+    const value: number = Number.isFinite(raw) ? (raw as number) : (medians[name] as number);
     return (value - (means[name] as number)) / (scales[name] as number);
   });
   const activity = model.activityCategories.map((c) => (c === input.physical_activity ? 1 : 0));
