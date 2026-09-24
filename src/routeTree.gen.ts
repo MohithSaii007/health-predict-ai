@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DocumentationRouteImport } from './routes/documentation'
 import { Route as ModelPerformanceRouteImport } from './routes/model-performance'
 import { Route as PredictionRouteImport } from './routes/prediction'
 import { Route as ResultsRouteImport } from './routes/results'
@@ -24,9 +26,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentationRoute = DocumentationRouteImport.update({
+  id: '/documentation',
+  path: '/documentation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ModelPerformanceRoute = ModelPerformanceRouteImport.update({
@@ -67,7 +79,9 @@ const ApiPublicPredictRoute = ApiPublicPredictRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/dashboard': typeof DashboardRoute
+  '/documentation': typeof DocumentationRoute
   '/model-performance': typeof ModelPerformanceRoute
   '/prediction': typeof PredictionRoute
   '/results': typeof ResultsRoute
@@ -78,7 +92,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/dashboard': typeof DashboardRoute
+  '/documentation': typeof DocumentationRoute
   '/model-performance': typeof ModelPerformanceRoute
   '/prediction': typeof PredictionRoute
   '/results': typeof ResultsRoute
@@ -90,7 +106,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/dashboard': typeof DashboardRoute
+  '/documentation': typeof DocumentationRoute
   '/model-performance': typeof ModelPerformanceRoute
   '/prediction': typeof PredictionRoute
   '/results': typeof ResultsRoute
@@ -103,7 +121,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/dashboard'
+    | '/documentation'
     | '/model-performance'
     | '/prediction'
     | '/results'
@@ -114,7 +134,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/dashboard'
+    | '/documentation'
     | '/model-performance'
     | '/prediction'
     | '/results'
@@ -125,7 +147,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/dashboard'
+    | '/documentation'
     | '/model-performance'
     | '/prediction'
     | '/results'
@@ -137,7 +161,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   DashboardRoute: typeof DashboardRoute
+  DocumentationRoute: typeof DocumentationRoute
   ModelPerformanceRoute: typeof ModelPerformanceRoute
   PredictionRoute: typeof PredictionRoute
   ResultsRoute: typeof ResultsRoute
@@ -156,11 +182,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documentation': {
+      id: '/documentation'
+      path: '/documentation'
+      fullPath: '/documentation'
+      preLoaderRoute: typeof DocumentationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/model-performance': {
@@ -217,7 +257,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   DashboardRoute: DashboardRoute,
+  DocumentationRoute: DocumentationRoute,
   ModelPerformanceRoute: ModelPerformanceRoute,
   PredictionRoute: PredictionRoute,
   ResultsRoute: ResultsRoute,
