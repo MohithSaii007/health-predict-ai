@@ -52,8 +52,8 @@ export function preprocess(input: PatientInput): number[] {
   const { medians, means, scales } = model.preprocessing;
   const numeric = model.numericFeatures.map((name) => {
     const raw = (input as unknown as Record<string, number>)[name];
-    const value = Number.isFinite(raw) ? raw : medians[name];
-    return (value - means[name]) / scales[name];
+    const value = Number.isFinite(raw) ? raw : (medians[name] as number);
+    return (value - (means[name] as number)) / (scales[name] as number);
   });
   const activity = model.activityCategories.map((c) => (c === input.physical_activity ? 1 : 0));
   return [...numeric, ...activity];
@@ -62,9 +62,13 @@ export function preprocess(input: PatientInput): number[] {
 function traverse(tree: Tree, x: number[]): number {
   let node = 0;
   while (tree.l[node] !== -1) {
-    node = x[tree.f[node]] <= tree.t[node] ? tree.l[node] : tree.r[node];
+    const featureIndex = tree.f[node] as number;
+    node =
+      (x[featureIndex] as number) <= (tree.t[node] as number)
+        ? (tree.l[node] as number)
+        : (tree.r[node] as number);
   }
-  return tree.p[node];
+  return tree.p[node] as number;
 }
 
 export function predict(input: PatientInput): PredictionResult {
